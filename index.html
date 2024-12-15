@@ -4,79 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greta House</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body>
-    <!-- Encabezado -->
     <header>
         <h1>Greta House</h1>
         <h2>Bienvenidos</h2>
     </header>
 
-    <!-- Navegación -->
     <nav>
-        <ul>
+        <ul class="centered-nav">
             <li><a href="#quienes-somos">Quiénes Somos</a></li>
             <li><a href="#productos">Productos</a></li>
             <li><a href="#reseñas">Reseñas</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li><a href="carrito.html" target="_blank">Carrito</a></li>
         </ul>
     </nav>
 
-    <!-- Contenido Principal -->
-    <main>
-        <!-- Quiénes Somos -->
-        <section id="quienes-somos" class="intro-section">
+    <main class="container">
+        <section id="quienes-somos">
             <img src="images/1000063797.jpg" alt="Foto de Greta" class="foto-greta">
-            <p>Bienvenidos a Greta House</p>
-            <p>Tu destino ideal para encontrar juguetes de alta calidad diseñados especialmente para gatos. Nuestra misión es proporcionar productos que no solo entretengan a tus felinos, sino que también promuevan su bienestar y felicidad.</p>
-            <p>En Greta House, creemos que cada gato merece lo mejor. Te invitamos a explorar nuestra colección y descubrir cómo nuestros juguetes pueden enriquecer la vida de tu felino. ¡Haz que cada día sea una aventura para tu gato con Greta House!</p>
+            <p class="text-center">
+                <strong>Bienvenidos a Greta House</strong><br>
+                Tu destino ideal para encontrar juguetes de alta calidad diseñados especialmente para gatos.
+                Nuestra misión es proporcionar productos que no solo entretengan a tus felinos, sino que también promuevan su bienestar y felicidad.
+                En Greta House, creemos que cada gato merece lo mejor. ¡Explora nuestra colección y haz cada día una aventura para tu gato!
+            </p>
         </section>
 
-        <!-- Productos -->
-        <section id="productos" class="productos-section">
+        <section id="productos">
             <h3>Nuestros Productos</h3>
             <div class="productos-grid">
-                <!-- Producto Pez Robot -->
                 <div class="card">
                     <img src="images/1000063696.jpg" alt="Pez Robot">
                     <h4>Pez Robot</h4>
-                    <p>Opción divertida y beneficiosa para mantener a tu mascota activa y entretenida. Con su diseño interactivo y características atractivas, estos juguetes no solo proporcionan diversión, sino que también contribuyen al bienestar físico y mental de los gatos.</p>
+                    <p>Juguete interactivo que mantiene activo a tu gato.</p>
                     <p><strong>Precio:</strong> $35.000</p>
-                    <button>Añadir al carrito</button>
+                    <button class="btn-add-cart" data-id="1" data-name="Pez Robot" data-price="35000">Añadir al carrito</button>
                 </div>
-                
-                <!-- Producto Caña de Pescar -->
                 <div class="card">
                     <img src="images/1000063700.jpg" alt="Caña de Pescar">
                     <h4>Caña de Pescar</h4>
-                    <p>Juguete interactivo diseñado para estimular el instinto de caza de los felinos. Simula el movimiento de una presa, lo que incita a los gatos a saltar, correr y atrapar.</p>
+                    <p>Estimula el instinto cazador de tu gato.</p>
                     <p><strong>Precio:</strong> $15.000</p>
-                    <button>Añadir al carrito</button>
+                    <button class="btn-add-cart" data-id="2" data-name="Caña de Pescar" data-price="15000">Añadir al carrito</button>
                 </div>
-
-                <!-- Producto Torre de Tres Niveles -->
                 <div class="card">
                     <img src="images/1000063792.webp" alt="Torre de Tres Niveles">
                     <h4>Torre de Tres Niveles</h4>
-                    <p>Juguete interactivo que consiste en una base con tres plataformas circulares apiladas, cada una con una pelota en su interior. Las pelotas giran dentro de cada nivel cuando el gato las golpea, brindando estimulación física y mental, y promoviendo el ejercicio y la diversión.</p>
+                    <p>Estimulación física y mental para gatos activos.</p>
                     <p><strong>Precio:</strong> $17.000</p>
-                    <button>Añadir al carrito</button>
+                    <button class="btn-add-cart" data-id="3" data-name="Torre de Tres Niveles" data-price="17000">Añadir al carrito</button>
                 </div>
             </div>
         </section>
 
-        <!-- Reseñas -->
-        <section id="reseñas" class="reseñas-section">
+        <section id="reseñas">
             <h3>Reseñas</h3>
             <div class="reseñas-grid">
-                <!-- Reseña 1 -->
                 <div class="reseña">
                     <p>"¡Los productos de Greta House son fantásticos! Mis gatos están encantados con el Pez Robot."</p>
                     <p>- Cliente Satisfecho</p>
                 </div>
-                <!-- Reseña 2 -->
                 <div class="reseña">
                     <p>"La torre de tres niveles es el mejor juguete que he comprado. Mi gato se mantiene activo y feliz."</p>
                     <p>- Ana, propietaria de gatos</p>
@@ -84,41 +75,34 @@
             </div>
         </section>
 
-        <!-- Contacto -->
-        <section id="contacto" class="contacto-section">
+        <section id="contacto">
             <h3>Contacto</h3>
             <form action="https://formspree.io/f/yourFormId" method="POST">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
-                
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" required>
-
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" required></textarea>
-
                 <button type="submit">Enviar</button>
             </form>
         </section>
     </main>
 
-    <!-- Pie de Página -->
     <footer>
-        <p>Gracias por comprar en Greta House</p>
-        <p>¡Vuelve pronto!</p>
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Ubicación de Villa Urquiza</title>
-        </head>
-        <body>
-            <h1>Encuéntranos en Villa Urquiza</h1>
-            <p>
-                Haz clic en el enlace para ver nuestra ubicación en el barrio Villa Urquiza:
-            </p>
-            <a href="https://www.google.com/maps/place/Villa+Urquiza,+Buenos+Aires,+Argentina" target="_blank">
-                Ver en Google Maps
-            </a>
+        <p style="color: black;">Gracias por comprar en Greta House</p>
+        <p style="color: black;">¡Vuelve pronto!</p>
+        <p style="color: black;">
+            Encuéntranos en Villa Urquiza<br>
+            <a href="https://www.google.com/maps/place/Villa+Urquiza,+Buenos+Aires,+Argentina" target="_blank" style="color: black;">Ver en Google Maps</a>
+        </p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+

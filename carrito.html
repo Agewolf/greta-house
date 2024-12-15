@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Carrito de Compras</h1>
+        <div id="productos-carrito"></div>
+        <div id="total"></div>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+        <button id="finalizar-compra">Finalizar Compra</button>
+    </main>
+
+    <script>
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        const renderCart = () => {
+            const productosCarrito = document.getElementById('productos-carrito');
+            const totalDiv = document.getElementById('total');
+
+            productosCarrito.innerHTML = '';
+            let total = 0;
+
+            carrito.forEach((product, index) => {
+                total += product.price;
+                const productDiv = document.createElement('div');
+                productDiv.innerHTML = `
+                    <p>${product.name} - $${product.price}</p>
+                    <button onclick="removeProduct(${index})">Eliminar</button>
+                `;
+                productosCarrito.appendChild(productDiv);
+            });
+
+            totalDiv.innerHTML = `<p>Total: $${total}</p>`;
+        };
+
+        const removeProduct = (index) => {
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            renderCart();
+        };
+
+        document.getElementById('vaciar-carrito').addEventListener('click', () => {
+            carrito.length = 0;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            renderCart();
+        });
+
+        document.getElementById('finalizar-compra').addEventListener('click', () => {
+            const nombre = prompt('Ingrese su nombre:');
+            const apellido = prompt('Ingrese su apellido:');
+            const contacto = prompt('Ingrese su número de contacto:');
+            const email = prompt('Ingrese su correo electrónico:');
+            const direccion = prompt('Ingrese su dirección:');
+            const codigoPostal = prompt('Ingrese su código postal:');
+            const metodoPago = prompt('Ingrese su método de pago (Efectivo, Transferencia, Débito, Crédito, Mercado Pago):');
+
+            alert(`Gracias por tu compra, ${nombre} ${apellido}. Se enviará una confirmación a ${email}.`);
+            carrito.length = 0;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            renderCart();
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>
